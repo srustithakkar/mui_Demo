@@ -25,8 +25,9 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import Card from "../components/Card"
 import PhotoCard from "../components/PhotoCard";
 import ProductCard from "../components/ProductCard";
-import OfficeCard from "../components/OfficeCard"
-import ProjectCard from "../components/ProjectCard"
+import OfficeCard from "../components/OfficeCard";
+import ProjectCard from "../components/ProjectCard";
+import ListSubheader from '@mui/material/ListSubheader';
 const drawerWidth = 240;
 
 const Search = styled('div')(({ theme }) => ({
@@ -208,8 +209,19 @@ export default function Home() {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+        <List
+          sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+          component="nav"
+          disableMargin
+          disablePadding
+          aria-labelledby="nested-list-subheader"
+          subheader={
+            <ListSubheader component="div" id="nested-list-subheader">
+              Home
+            </ListSubheader>
+          }>
+
+          {['Misc', 'Crypto', 'Listing', 'Crm', 'Intranet', 'eCommerce', 'News'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
@@ -220,9 +232,37 @@ export default function Home() {
             </ListItem>
           ))}
         </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
+        <List
+          sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+          component="nav"
+          disableMargin
+          aria-labelledby="nested-list-subheader"
+          subheader={
+            <ListSubheader component="div" id="nested-list-subheader2">
+              Apps
+            </ListSubheader>
+          }>
+          {['Chat', 'Contacts', 'Mail'].map((text, index) => (
+            <ListItem key={text} disablePadding  disableMargin  >
+              <ListItemButton>
+                <ListItemIcon>
+                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text}/>
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+        <List
+          sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+          component="nav"
+          aria-labelledby="nested-list-subheader"
+          subheader={
+            <ListSubheader component="div" id="nested-list-subheader3">
+              Cards
+            </ListSubheader>
+          }>
+          {['Widgets', 'metrics'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
@@ -233,7 +273,47 @@ export default function Home() {
             </ListItem>
           ))}
         </List>
-      </Drawer>
+        <List
+          sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+          component="nav"
+          aria-labelledby="nested-list-subheader"
+          subheader={
+            <ListSubheader component="div" id="nested-list-subheader4">
+              components
+            </ListSubheader>
+          }>
+          {['Material UI'].map((text, index) => (
+            <ListItem key={text} disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+        <List
+          sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+          component="nav"
+          aria-labelledby="nested-list-subheader"
+          subheader={
+            <ListSubheader component="div" id="nested-list-subheader5">
+              Extentions
+            </ListSubheader>
+          }>
+          {['Editor', 'Drag n Drop'].map((text, index) => (
+            <ListItem key={text} disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+        </Drawer>
       <Main open={open}>
         <div style={{display:"flex",justifyContent: "space-between", marginTop:"50px"}}>
         <Card minWidth="350px"/>
